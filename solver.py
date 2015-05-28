@@ -121,8 +121,9 @@ def solver(maze, current, target):
     printer(maze, current, target, 0.10)
 
     for move in nextmoves(y, x):
-        if solver(deepcopy(maze), move, target):
+        if solver(maze, move, target):
             return True
+    maze[y][x] = VALUE_OPEN
     return False
 
 
